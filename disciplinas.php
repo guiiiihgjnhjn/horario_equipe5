@@ -24,4 +24,5 @@ $disciplinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($disciplinas as $disciplina): ?>
         <li><?php echo $disciplina['nome']; ?></li>
     <?php endforeach; ?>
+    
 </ul>
