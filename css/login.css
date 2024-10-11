@@ -1,0 +1,75 @@
+/* styles.css */
+
+/* Estilo geral do body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Preenche a altura da viewport */
+}
+
+/* Container do formulário de login */
+.login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Largura fixa para o formulário */
+}
+
+/* Estilo para os cabeçalhos */
+h2 {
+    color: #333;
+    text-align: center; /* Centraliza o texto do cabeçalho */
+}
+
+/* Estilo dos grupos de entrada */
+.input-group {
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+}
+
+/* Estilo dos labels */
+label {
+    display: block; /* Faz o label ocupar toda a largura */
+    margin-bottom: 5px; /* Espaçamento abaixo do label */
+    color: #555; /* Cor do texto do label */
+}
+
+/* Estilo para inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo do checkbox e label */
+.checkbox-group {
+    display: flex;
+    align-items: center; /* Alinha o checkbox e o label verticalmente */
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px; /* Espaçamento entre checkbox e label */
+}
+
+/* Estilo para o botão */
+button.login-button {
+    background-color: #1C1C1C;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Faz o botão ocupar toda a largura do container */
+}
+
+button.login-button:hover {
+    background-color: #333; /* Efeito ao passar o mouse */
+}

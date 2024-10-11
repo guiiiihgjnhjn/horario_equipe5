@@ -1,35 +1,24 @@
 <?php
-require_once 'db.php';
+include "db.php";
 
-// Adiciona um novo horário
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $professor_id = $_POST['professor_id'];
-    $disciplina_id = $_POST['disciplina_id'];
-    $dia_semana = $_POST['dia_semana'];
-    $hora_inicio = $_POST['hora_inicio'];
-    $hora_fim = $_POST['hora_fim'];
+$stmt = $pdo->query("SELECT * FROM disciplinas");
+$disciplinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $stmt = $pdo->prepare("
-        INSERT INTO horarios (professor_id, disciplina_id, dia_semana, hora_inicio, hora_fim) 
-        VALUES (?, ?, ?, ?, ?)
-    ");
-    $stmt->execute([$professor_id, $disciplina_id, $dia_semana, $hora_inicio, $hora_fim]);
-}
-
-// Exibe a lista de horários
-$stmt = $pdo->query("
-    SELECT h.*, p.nome AS professor_nome, d.nome AS disciplina_nome 
-    FROM horarios h
-    JOIN professores p ON h.professor_id = p.id
-    JOIN disciplinas d ON h.disciplina_id = d.id
-");
-$horarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Puxa lista de professores e disciplinas
-$professores = $pdo->query("SELECT * FROM professores")->fetchAll(PDO::FETCH_ASSOC);
-$disciplinas = $pdo->query("SELECT * FROM disciplinas")->fetchAll(PDO::FETCH_ASSOC);
+$stmt_professores = $pdo->query("SELECT id, nome FROM professores");
+$professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/horarios.css" media="screen" />
+
+    <title>Document</title>
+</head>
+<body>
 <h2>Adicionar Horário</h2>
 <form method="POST">
     Professor:
@@ -58,80 +47,8 @@ $disciplinas = $pdo->query("SELECT * FROM disciplinas")->fetchAll(PDO::FETCH_ASS
 </ul>
 
 
-<style>
-/* styles.css */
-
-/* Estilos gerais do corpo */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
-    margin-left: 682px;
-    padding: 20px;
-}
-
-/* Estilo para os cabeçalhos */
-h2 {
-    color: #333;
-}
-
-/* Estilo do formulário */
-form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    width: 600px;
-}
-
-/* Estilo para os inputs e select */
-input[type="text"],
-select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type="time"],
-select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-/* Estilo para o botão */
-button {
-    background-color:#1C1C1C;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
+</body>
+</html>
 
-ul li {
-    background: #e9ecef;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 4px;
-    width: 600px;
-}
-
-/* Mensagens de feedback */
-p {
-    font-size: 16px;
-    color: #28a745;
-}
-
-</style>
