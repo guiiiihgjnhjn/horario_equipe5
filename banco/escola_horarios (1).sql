@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2024 às 14:54
+-- Tempo de geração: 11-Out-2024 às 14:53
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -71,17 +71,22 @@ CREATE TABLE `horarios` (
 
 CREATE TABLE `professores` (
   `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL
+  `nome` varchar(255) NOT NULL,
+  `senha` varchar(155) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `professores`
 --
 
-INSERT INTO `professores` (`id`, `nome`) VALUES
-(1, 'Professor'),
-(2, 'Elcio'),
-(3, 'Anderson');
+INSERT INTO `professores` (`id`, `nome`, `senha`) VALUES
+(1, 'Professor', ''),
+(2, 'Elcio', '1234'),
+(3, 'Anderson', ''),
+(4, 'Elcio J', ''),
+(5, 'fasf', ''),
+(6, 'uvvjhvh', ''),
+(7, 'a', '$2y$10$QASdLlFGUBpEw3Cg7J5ZNeE6lZsBeyq5MyrZiZ53.fQZwrsx.M6Gq');
 
 --
 -- Índices para tabelas despejadas
@@ -127,7 +132,7 @@ ALTER TABLE `horarios`
 -- AUTO_INCREMENT de tabela `professores`
 --
 ALTER TABLE `professores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para despejos de tabelas
