@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../conexao/db.php';
 $stmt = $pdo->query("SELECT * FROM disciplinas");
 $disciplinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -21,7 +21,7 @@ $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <h2>Adicionar Disciplina</h2>
-<form method="POST" action="api/gravardisciplinas.php">
+<form method="POST" action="../api/gravardisciplinas.php">
     Nome: <input type="text" name="nome" required>
     Professor: 
     <select id="professor" name="professor" required>

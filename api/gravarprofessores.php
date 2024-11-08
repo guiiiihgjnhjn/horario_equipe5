@@ -1,5 +1,5 @@
 <?php
-require_once '../db.php';
+require_once '../conexao/db.php';
 
 // Adiciona um novo professor
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO professores (nome, senha) VALUES (:nome, :senha)");
         if ($stmt->execute([':nome' => $nome, ':senha' => $senhaHash])) {
             // Redireciona para a página index após sucesso
-            header('Location: ../professores.php');
+            header('Location: ../cadastro/professores.php');
             exit; // Certifique-se de encerrar o script após o redirecionamento
         } else {
             echo "Erro ao adicionar professor.";

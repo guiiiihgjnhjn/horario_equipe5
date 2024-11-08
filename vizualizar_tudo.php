@@ -1,5 +1,5 @@
 <?php
-require_once 'db.php';
+require_once 'conexao/db.php';
 
 // Puxa lista de professores
 $stmt_professores = $pdo->query("SELECT * FROM professores");
@@ -13,8 +13,8 @@ $disciplinas = $stmt_disciplinas->fetchAll(PDO::FETCH_ASSOC);
 $stmt_horarios = $pdo->query("
     SELECT h.*, p.nome AS professor_nome, d.nome AS disciplina_nome
     FROM horarios h
-    JOIN professores p ON h.professor_id = p.id
-    JOIN disciplinas d ON h.disciplina_id = d.id
+    INNER JOIN professores p ON h.professor_id = p.id
+    INNER JOIN disciplinas d ON h.disciplina_id = d.id
 ");
 $horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
 ?>

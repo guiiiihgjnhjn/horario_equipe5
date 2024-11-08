@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../conexao/db.php';
 // Exibe a lista de professores
 $stmt = $pdo->query("SELECT * FROM professores");
 $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -17,7 +17,7 @@ $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <h2>Adicionar Professor</h2>
-<form method="POST" action="api/gravarprofessores.php">
+<form method="POST" action="../api/gravarprofessores.php">
     Nome: <input type="text" name="nome" required>
     Senha: <input type="text" name="senha" id="senha">
     <button type="submit">Adicionar</button>

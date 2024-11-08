@@ -1,8 +1,8 @@
-<?php
+<?php  
 session_start(); // Inicia a sessão
 
 // Inclui o arquivo de conexão com o banco de dados
-include "db.php"; // Ajuste o caminho se necessário
+include "../conexao/db.php"; // Ajuste o caminho se necessário
 
 // Verifica se os dados foram enviados via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
