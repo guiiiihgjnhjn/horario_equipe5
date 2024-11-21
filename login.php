@@ -15,7 +15,7 @@ include "conexao/db.php";
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="verificalogin.php" method="POST">
+        <form action="api/verificalogin.php" method="POST">
             <div class="input-group">
                 <label for="usuario">Usuário:</label>
                 <input type="text" id="usuario" name="usuario" required>

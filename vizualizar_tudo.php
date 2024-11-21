@@ -25,21 +25,14 @@ $horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Tudo</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="css/vizualizar.css">
 </head>
 <body>
+<div class="menu">
+        <a href="cadastrar_horario.php"><a href="cadastro/horarios.php">Cadastrar Horário</a>
+        <a href="cadastrar_disciplina.php">Cadastrar Disciplina</a>
+        <a href="cadastrar_professor.php">Cadastrar Professor</a>
+    </div>
     <h1>Visualizar Tudo</h1>
 
     <!-- Professores -->
