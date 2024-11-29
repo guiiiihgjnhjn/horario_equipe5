@@ -25,7 +25,7 @@ th, td {
 .menu a:hover {
     background-color: #575757;
 }
-/* Estilo geral do corpo da página */
+
 body {
 font-family: Arial, sans-serif;
 background-color: #f4f4f9;
@@ -33,7 +33,7 @@ margin: 0;
 padding: 20px;
 }
 
-/* Títulos principais */
+
 h1 {
 color: #333;
 text-align: center;
@@ -41,7 +41,6 @@ font-size: 2em;
 margin-bottom: 20px;
 }
 
-/* Estilo para os subtítulos de cada seção */
 h2 {
 color: #444;
 font-size: 1.5em;
@@ -50,7 +49,7 @@ border-bottom: 2px solid #333;
 padding-bottom: 5px;
 }
 
-/* Estilo geral das tabelas */
+
 table {
 width: 100%;
 border-collapse: collapse;
@@ -59,21 +58,19 @@ background-color: #fff;
 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo das células da tabela */
+
 th, td {
 padding: 12px;
 text-align: left;
 border: 1px solid #ddd;
 }
 
-/* Estilo para os cabeçalhos das colunas */
 th {
 background-color: #333;
 color: white;
 font-weight: bold;
 }
 
-/* Estilo das linhas da tabela */
 tbody tr:nth-child(even) {
 background-color: #f2f2f2;
 }
@@ -82,7 +79,6 @@ tbody tr:hover {
 background-color: #e0e0e0;
 }
 
-/* Adicionando margem ao redor das tabelas */
 table + table {
 margin-top: 40px;
 }

@@ -1,30 +1,32 @@
 <?php  
-session_start(); // Inicia a sessão
+session_start(); 
 
-// Inclui o arquivo de conexão com o banco de dados
-include "../conexao/db.php"; // Ajuste o caminho se necessário
+include "../conexao/db.php"; 
 
-// Verifica se os dados foram enviados via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST['usuario']; // Nome do usuário enviado pelo formulário
-    $senha = $_POST['senha']; // Senha enviada pelo formulário
+    $nome = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING); 
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING); 
 
-    // Prepara a consulta SQL
+    if (empty($nome) || empty($senha)) {
+        echo "Por favor, preencha todos os campos.";
+        exit;
+    }
+
     $stmt = $pdo->prepare("SELECT * FROM professores WHERE nome = :nome");
     $stmt->execute([':nome' => $nome]);
     $usuarioEncontrado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Verifica se o usuário existe e a senha está correta
-    if ($usuarioEncontrado && password_verify($senha, $usuarioEncontrado['senha'])) {
-        // Armazena informações na sessão
-        $_SESSION['usuario'] = $usuarioEncontrado['nome'];
+    if ($usuarioEncontrado) {
+        if (password_verify($senha, $usuarioEncontrado['senha'])) {
+            $_SESSION['usuario'] = $usuarioEncontrado['nome'];
 
-        // Redireciona para a página desejada (por exemplo, index.php)
-        header('Location: vizualizar_tudo.php');
-        exit; // Encerra o script após o redirecionamento
+            header('Location: ../vizualizar_tudo.php');
+            exit;
+        } else {
+            echo "Usuário ou senha incorretos.";
+        }
     } else {
-        // Mensagem de erro se as credenciais estiverem incorretas
-        echo "Usuário ou senha incorretos.";
+        echo "Usuário não encontrado.";
     }
 }
 ?>

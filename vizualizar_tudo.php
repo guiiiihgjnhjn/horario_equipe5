@@ -1,15 +1,13 @@
 <?php
 require_once 'conexao/db.php';
 
-// Puxa lista de professores
+
 $stmt_professores = $pdo->query("SELECT * FROM professores");
 $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
 
-// Puxa lista de disciplinas
 $stmt_disciplinas = $pdo->query("SELECT * FROM disciplinas");
 $disciplinas = $stmt_disciplinas->fetchAll(PDO::FETCH_ASSOC);
 
-// Puxa lista de horários com informações de professores e disciplinas
 $stmt_horarios = $pdo->query("
     SELECT h.*, p.nome AS professor_nome, d.nome AS disciplina_nome
     FROM horarios h
@@ -35,7 +33,7 @@ $horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <h1>Visualizar Tudo</h1>
 
-    <!-- Professores -->
+  
     <h2>Professores</h2>
     <table>
         <thead>
@@ -54,7 +52,7 @@ $horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 
-    <!-- Disciplinas -->
+ 
     <h2>Disciplinas</h2>
     <table>
         <thead>
@@ -73,7 +71,6 @@ $horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
         </tbody>
     </table>
 
-    <!-- Horários -->
     <h2>Horários</h2>
     <table>
         <thead>

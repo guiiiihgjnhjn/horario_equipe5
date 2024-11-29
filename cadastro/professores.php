@@ -1,6 +1,6 @@
 <?php
 include '../conexao/db.php';
-// Exibe a lista de professores
+
 $stmt = $pdo->query("SELECT * FROM professores");
 $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -16,6 +16,11 @@ $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Document</title>
 </head>
 <body>
+<div class="menu">
+        <a href="horarios.php">Cadastrar Horário</a>
+        <a href="disciplinas.php">Cadastrar Disciplina</a>
+    </div>
+    <div id="container">
 <h2>Adicionar Professor</h2>
 <form method="POST" action="../api/gravarprofessores.php">
     Nome: <input type="text" name="nome" required>
@@ -30,7 +35,7 @@ $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
 </ul>
 
-
+</div>
 </body>
 </html>
 

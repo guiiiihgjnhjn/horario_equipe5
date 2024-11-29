@@ -1,45 +1,43 @@
-/* styles.css */
 
-/* Estilo geral do body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Preenche a altura da viewport */
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
 }
 
-/* Container do formulário de login */
+
 .login-container {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Largura fixa para o formulário */
+    width: 300px; 
 }
 
-/* Estilo para os cabeçalhos */
+
 h2 {
     color: #333;
-    text-align: center; /* Centraliza o texto do cabeçalho */
+    text-align: center; 
 }
 
-/* Estilo dos grupos de entrada */
+
 .input-group {
-    margin-bottom: 15px; /* Espaçamento entre os campos */
+    margin-bottom: 15px; 
 }
 
-/* Estilo dos labels */
+
 label {
-    display: block; /* Faz o label ocupar toda a largura */
-    margin-bottom: 5px; /* Espaçamento abaixo do label */
-    color: #555; /* Cor do texto do label */
+    display: block; 
+    margin-bottom: 5px; 
+    color: #555; 
 }
 
-/* Estilo para inputs */
+
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -48,17 +46,15 @@ input[type="password"] {
     border-radius: 4px;
 }
 
-/* Estilo do checkbox e label */
 .checkbox-group {
     display: flex;
-    align-items: center; /* Alinha o checkbox e o label verticalmente */
+    align-items: center; 
 }
 
 .checkbox-group input[type="checkbox"] {
-    margin-right: 10px; /* Espaçamento entre checkbox e label */
+    margin-right: 10px; 
 }
 
-/* Estilo para o botão */
 button.login-button {
     background-color: #1C1C1C;
     color: white;
@@ -67,9 +63,9 @@ button.login-button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%; /* Faz o botão ocupar toda a largura do container */
+    width: 100%; 
 }
 
 button.login-button:hover {
-    background-color: #333; /* Efeito ao passar o mouse */
+    background-color: #333; 
 }

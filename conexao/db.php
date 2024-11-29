@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $db = 'escola_horarios';
-$user = 'root'; // Usuário padrão do MySQL
-$pass = '';     // Deixe a senha em branco se estiver usando a configuração padrão do XAMPP
+$user = 'root'; 
+$pass = '';     
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);

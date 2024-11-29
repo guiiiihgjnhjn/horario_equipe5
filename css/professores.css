@@ -1,20 +1,37 @@
-/* styles.css */
 
-/* Estilos gerais do corpo */
+.menu {
+    background-color: #333;
+    overflow: hidden;
+}
+.menu a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.menu a:hover {
+    background-color: #575757;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 20px;
-    margin-left: 682px;
-    padding: 20px;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
 }
 
-/* Estilo para os cabeçalhos */
 h2 {
     color: #333;
 }
 
-/* Estilo do formulário */
 form {
     background: #fff;
     padding: 20px;
@@ -24,7 +41,7 @@ form {
     width: 600px;
 }
 
-/* Estilo para os inputs e select */
+
 input[type="text"],
 select {
     width: 100%;
@@ -34,7 +51,7 @@ select {
     border-radius: 4px;
 }
 
-/* Estilo para o botão */
+
 button {
     background-color:#1C1C1C;
     color: white;
@@ -59,7 +76,7 @@ ul li {
     width: 600px;
 }
 
-/* Mensagens de feedback */
+
 p {
     font-size: 16px;
     color: #28a745;

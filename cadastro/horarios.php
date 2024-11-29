@@ -1,14 +1,43 @@
 <?php
-// Incluir a lógica de backend (processamento de dados)
-
 include "../conexao/db.php";
 
-$stmt = $pdo->query("SELECT * FROM disciplinas");
-$disciplinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $professor_id = $_POST['professor_id'];
+    $disciplina_id = $_POST['disciplina_id'];
+    $dia_semana = $_POST['dia_semana'];
+    $hora_inicio = $_POST['hora_inicio'];
+    $hora_fim = $_POST['hora_fim'];
+
+   
+    $sql = "INSERT INTO horarios (professor_id, disciplina_id, dia_semana, hora_inicio, hora_fim) 
+            VALUES (:professor_id, :disciplina_id, :dia_semana, :hora_inicio, :hora_fim)";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':professor_id' => $professor_id,
+        ':disciplina_id' => $disciplina_id,
+        ':dia_semana' => $dia_semana,
+        ':hora_inicio' => $hora_inicio,
+        ':hora_fim' => $hora_fim
+    ]);
+}
+
+
+$stmt_horarios = $pdo->query("
+    SELECT h.*, p.nome AS professor_nome, d.nome AS disciplina_nome 
+    FROM horarios h
+    JOIN professores p ON h.professor_id = p.id
+    JOIN disciplinas d ON h.disciplina_id = d.id
+");
+
+$horarios = $stmt_horarios->fetchAll(PDO::FETCH_ASSOC);
+
+
+$stmt_disciplinas = $pdo->query("SELECT * FROM disciplinas");
+$disciplinas = $stmt_disciplinas->fetchAll(PDO::FETCH_ASSOC);
 
 $stmt_professores = $pdo->query("SELECT id, nome FROM professores");
 $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +50,11 @@ $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
     <title>Gerenciar Horários</title>
 </head>
 <body>
-
+<div class="menu">
+        <a href="../cadastro/disciplinas.php">Cadastrar Disciplina</a>
+        <a href="../cadastro/professores.php">Cadastrar Professor</a>
+    </div>
+    <div id="container">
 <h2>Adicionar Horário</h2>
 <form method="POST">
     <label for="professor_id">Professor:</label>
@@ -59,6 +92,6 @@ $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
         </li>
     <?php endforeach; ?>
 </ul>
-
+</div>
 </body>
 </html>

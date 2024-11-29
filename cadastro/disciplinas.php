@@ -14,12 +14,17 @@ $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href=".../css/disciplinas.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../css/disciplinas.css" media="screen" />
 
     <title>Adicionar Disciplina</title>
 </head>
 <body>
-
+<div class="menu">
+        <a href="horarios.php">Cadastrar Horário</a>
+       
+        <a href="professores.php">Cadastrar Professor</a>
+    </div>
+    <div id="container">
 <h2>Adicionar Disciplina</h2>
 <form method="POST" action="../api/gravardisciplinas.php">
     Nome: <input type="text" name="nome" required>
@@ -44,6 +49,6 @@ $professores = $stmt_professores->fetchAll(PDO::FETCH_ASSOC);
         <li><?php echo htmlspecialchars($disciplina['nome']); ?></li>
     <?php endforeach; ?>
 </ul>
-
+</div>
 </body>
 </html>
